@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "3b31",
+      "product": "carne",
+      "price": "12,5"
+    },
+    {
+      "id": "9897",
+      "product": "papel filme",
+      "price": "12,4"
+    },
+    {
+      "id": "6e56",
+      "product": "laranja",
+      "price": "8"
+    },
+    {
+      "id": "f13e",
+      "product": "carne",
+      "price": "38"
+    }
+  ]
+}

@@ -45,16 +45,18 @@ const inputValue = ({fetchData}) => {
             }
 
             fetchData()
-            
+
             const data = await response.json();
             console.log("Produto adicionado", data)
+
             
+
 
     } catch (error){
         console.error("Erro", error)
     }
 
-    
+    setProduct("");
 }
 
     return (

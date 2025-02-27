@@ -55,19 +55,25 @@
     border-radius: 8px;
     background-color: rgb(116, 116, 250);
     border: none;
-    /* opacity: 0.5; */
     transition: 0.5S;
     margin-top: 12px;
-}
-
-#button-add:hover{
-    opacity: 1;
-
 }
 
 @media (min-width: 600px) {
     
     #main-input{
         max-width: 622px;
+        
+    }
+
+    #button-add{
+        background-color: rgb(57, 57, 114);
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    #button-add:hover{
+        background-color: rgb(116, 116, 250);
+        
     }
 }

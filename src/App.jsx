@@ -32,7 +32,7 @@ function App() {
     <main>
       <h1>Lista <span id='de'>de</span> compras</h1>
       <section>
-        <Table  products = {products}/>
+        <Table  products = {products} fetchData = {fetchData}/>
         <InputValue fetchData = {fetchData}/>
       </section>
     </main>

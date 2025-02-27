@@ -12,19 +12,33 @@ const inputValue = ({fetchData}) => {
         setProduct(e.target.value)
     }
 
-    const handlePrice = (e) =>{
-
+    const handlePrice = (e) => {
         let value = e.target.value;
+    
+        value = value.replace(/\D/g, "");
 
-        if (/^[0-9.,]*$/.test(value)) {
-            value = value.replace(/\./g, ",");
-            setPrice(value)
+        if (value === "") {
+            setPrice("");
+            return;
         }
-}
+    
+        let number = parseFloat(value) / 100;
+    
+        setPrice(number.toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }));
+    };
+
+    const handleBlur = () => {
+        if (price === "0,00") {
+            setPrice("");
+        }
+    }
 
     const addProcut = async (e) =>{
         e.preventDefault();
-        if (product, price === ""){
+        if (product === "" || price === ""){
             alert("Faltam informações!!!")
             return;
         }
@@ -57,6 +71,7 @@ const inputValue = ({fetchData}) => {
     }
 
     setProduct("");
+    setPrice ("");
 }
 
     return (
@@ -65,26 +80,30 @@ const inputValue = ({fetchData}) => {
             <form id="form-input" onSubmit={addProcut}>
                 <div id="staly-product-price">
                     <div className="format-align">
-                        <label htmlFor="product">Produto</label>
+                        <label htmlFor="product">PRODUTO</label>
                         <input 
                         id="product" type="text" 
                         placeholder="Nome do produto"
+                        autoComplete="off"
                         onChange={handleProduct}
+                        value={product}
                         />
                     </div>
 
                     <div className="format-align">
-                        <label htmlFor="price">Preço</label>
+                        <label htmlFor="price">PREÇO</label>
                         <input 
                         id="price" 
                         type="text"  
                         placeholder="Exemplo: 2,50"
+                        autoComplete="off"
                         onChange={handlePrice}
+                        onBlur={handleBlur}
                         value={price}
                     />
                     </div>
                 </div>
-                <input id="button-add" type="submit" value="Adicionar"/>
+                <input id="button-add" type="submit" value="ADICIONAR"/>
             </form>
         </section>
     )

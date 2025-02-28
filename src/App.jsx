@@ -31,7 +31,7 @@ function App() {
   return (
     <main>
       <h1>Lista <span id='de'>de</span> compras</h1>
-      <section>
+      <section id='mainSection'>
         <Table  products = {products} fetchData = {fetchData}/>
         <InputValue fetchData = {fetchData}/>
       </section>

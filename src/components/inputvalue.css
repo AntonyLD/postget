@@ -46,34 +46,34 @@
 }
 
 #price:focus, #product:focus{
-    outline: 2px solid rgb(116, 116, 250);
+    outline: 2px solid var(--corPrincipal);
 }
 
 #button-add{
     height: 3rem;
     width: 10.4rem;
     border-radius: 8px;
-    background-color: rgb(116, 116, 250);
+    background-color: var(--corPrincipal);
     border: none;
     transition: 0.5S;
     margin-top: 12px;
+    box-shadow: 2px 3px 0px 2px var(--corSombra);
 }
 
 @media (min-width: 600px) {
     
     #main-input{
         max-width: 622px;
-        
     }
 
     #button-add{
-        background-color: rgb(57, 57, 114);
+        background-color: var(--corSecundaria);
         font-size: 1rem;
         font-weight: bold;
     }
 
     #button-add:hover{
-        background-color: rgb(116, 116, 250);
-        
+        background-color: var(--corPrincipal);
+        box-shadow: 2px 3px 0px 2px var(--corSombraClara);
     }
 }

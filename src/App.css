@@ -17,8 +17,12 @@ main {
     min-height: 100vh;
 }
 
+#mainSection{
+    height: 100%;
+}
+
 h1 {
-    margin-top: 16px;
+    margin: 16px 0px;
 }
 
 #de {

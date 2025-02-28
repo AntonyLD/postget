@@ -1,50 +1,34 @@
 {
   "products": [
     {
-      "id": "3b31",
-      "product": "carne",
-      "price": "12,5"
+      "id": "1477",
+      "product": "CARNE",
+      "price": "10,00"
     },
     {
-      "id": "3e58",
-      "product": "jujuba ",
-      "price": "2,58"
+      "id": "b46f",
+      "product": "OVOS",
+      "price": "0,23"
     },
     {
-      "id": "bcf5",
-      "product": "jujuba ",
-      "price": "2,58"
+      "id": "3bc2",
+      "product": "MACARRÃO",
+      "price": "3,50"
     },
     {
-      "id": "db10",
-      "product": "Caju",
-      "price": "20"
+      "id": "f285",
+      "product": "COCO",
+      "price": "10,00"
     },
     {
-      "id": "54cf",
-      "product": "",
-      "price": "20"
+      "id": "03f2",
+      "product": "PICANHA ",
+      "price": "9.999,99"
     },
     {
-      "id": "aa59",
-      "product": "",
-      "price": "20"
-    },
-    {
-      "id": "f9dd",
-      "product": "",
-      "price": "20"
-    },
-    {
-      "id": "cee1",
-      "product": "",
-      "price": "20"
-    },
-    {
-      "id": "c56e",
-      "product": "",
-      "price": "20"
+      "id": "bf9e",
+      "product": "PISTOLA",
+      "price": "80,00"
     }
-
   ]
 }

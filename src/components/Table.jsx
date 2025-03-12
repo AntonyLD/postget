@@ -6,6 +6,7 @@ import "./table.css";
 
 const Table = ({products, fetchData }) => {
   const [originalPrices, setOriginalPrices] = useState({});
+  const [totValue, setTotValue] = useState(0)
 
   useEffect((item) => {
     setOriginalPrices((prevPrices) =>{
@@ -21,6 +22,8 @@ const Table = ({products, fetchData }) => {
       return newPrices;
 
     });
+
+    calculateTotPrice();
 
   }, [products]);
 
@@ -75,8 +78,6 @@ const Table = ({products, fetchData }) => {
     currentProduct.amount = parseInt(currentProduct.amount)
     const updatedAmount = currentProduct.amount - 1;
 
-
-
     const originalPrice = originalPrices[id];
     const currentPrice = parseFloat(currentProduct.price.replace(",", "."));
 
@@ -123,7 +124,18 @@ const Table = ({products, fetchData }) => {
     }
   };
 
+  const calculateTotPrice = () =>{
+
+    const total = products.reduce((acc, item) =>{
+      return acc + parseFloat(item.price.replace(",", ".")) * item.amount;
+    }, 0)
+
+    setTotValue(total)
+
+  }
+
   return (
+    <>
     <section id="table">
       {products.map((item) => (
         <ul id="list-table" key={item.id}>
@@ -157,11 +169,19 @@ const Table = ({products, fetchData }) => {
               >
                 <path d="M200-440v-80h560v80H200Z" />
               </svg>
+            
             </button>
           </li>
         </ul>
+        
       ))}
+      
     </section>
+    <div id="box-tot-price">
+      <p id="price-total"> Total R$: {formatCurrency(totValue)}</p>
+    </div>
+    </>
+    
   );
 };
 

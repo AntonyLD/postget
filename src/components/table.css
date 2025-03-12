@@ -5,7 +5,7 @@
 }
 
 #table{
-    max-height: 25rem;
+    max-height: 22.5rem;
     overflow-y: auto;
     width: 100vw;
     display: flex;
@@ -44,6 +44,24 @@
     border-radius: 8px;
     padding: 2px;
     
+}
+
+#box-tot-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px auto 0px auto;
+    width: 92%;
+    height: 3rem;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    border-radius: 8px;
+    background-color: rgba(20, 20, 20, 0.904);
+}
+
+#price-total{
+    width: 100%;
+    text-align: center;
 }
 
 #buttons{

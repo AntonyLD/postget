@@ -9,56 +9,32 @@
     {
       "id": "39ea",
       "product": "arroz",
-      "price": "10,00",
-      "amount": "1"
-    },
-    {
-      "id": "adbc",
-      "product": "leite",
-      "price": "8.05",
-      "amount": "1"
-    },
-    {
-      "id": "b3d7",
-      "product": "escova de dente",
-      "price": "16,89",
+      "price": "60",
       "amount": "1"
     },
     {
       "id": "3f4d",
       "product": "livro",
-      "price": "32,00",
-      "amount": "1"
-    },
-    {
-      "id": "8064",
-      "product": "saco de lixo",
-      "price": "3,50",
+      "price": "64",
       "amount": "1"
     },
     {
       "id": "b905",
       "product": "10 pães",
-      "price": "15,20",
-      "amount": "1"
+      "price": "30.4",
+      "amount": "2"
     },
     {
       "id": "9cbf",
       "product": "30 ovos",
-      "price": "30,00",
-      "amount": "1"
+      "price": "60",
+      "amount": "2"
     },
     {
       "id": "0468",
       "product": "óculos de sol",
-      "price": "25.300000000000008",
-      "amount": "1"
-    },
-    {
-      "id": "bf35",
-      "product": "maizena",
-      "price": "7.560000000000001",
-      "amount": "1"
+      "price": "75.90000000000002",
+      "amount": "3"
     },
     {
       "id": "ff01",

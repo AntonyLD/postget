@@ -34,6 +34,7 @@ function App() {
       <section id='mainSection'>
         <Table  products = {products} fetchData = {fetchData}/>
         <InputValue fetchData = {fetchData}/>
+        
       </section>
     </main>
   )

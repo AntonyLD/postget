@@ -1,0 +1,70 @@
+{
+    "products": [
+      {
+        "id": "e418",
+        "product": "banana",
+        "price": "2,50",
+        "amount": "1"
+      },
+      {
+        "id": "39ea",
+        "product": "arroz",
+        "price": "10,00",
+        "amount": "1"
+      },
+      {
+        "id": "adbc",
+        "product": "leite",
+        "price": "8,05",
+        "amount": "1"
+      },
+      {
+        "id": "b3d7",
+        "product": "escova de dente",
+        "price": "16,89",
+        "amount": "1"
+      },
+      {
+        "id": "3f4d",
+        "product": "livro",
+        "price": "32,00",
+        "amount": "1"
+      },
+      {
+        "id": "8064",
+        "product": "saco de lixo",
+        "price": "3,50",
+        "amount": "1"
+      },
+      {
+        "id": "b905",
+        "product": "10 pães",
+        "price": "15,20",
+        "amount": "1"
+      },
+      {
+        "id": "9cbf",
+        "product": "30 ovos",
+        "price": "30,00",
+        "amount": "1"
+      },
+      {
+        "id": "0468",
+        "product": "óculos de sol",
+        "price": "25,30",
+        "amount": "1"
+      },
+      {
+        "id": "bf35",
+        "product": "maizena",
+        "price": "7,56",
+        "amount": "1"
+      },
+      {
+        "id": "ff01",
+        "product": "lazanha",
+        "price": "25,60",
+        "amount": "1"
+      }
+    ]
+  }

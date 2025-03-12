@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import "./inputvalue.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const inputValue = ({fetchData}) => {
 
     const [product, setProduct] = useState("")
     const [price, setPrice ] = useState("")
+    const [amount, setAmount] = useState("")
 
     const handleProduct = (e) =>{
         setProduct(e.target.value)
@@ -42,7 +43,9 @@ const inputValue = ({fetchData}) => {
             alert("Faltam informações!!!")
             return;
         }
-        const productData = {product, price}
+
+
+        const productData = {product, price, amount: "1"}
 
     try{
         const response = await fetch('http://localhost:3000/products',
@@ -72,6 +75,7 @@ const inputValue = ({fetchData}) => {
 
     setProduct("");
     setPrice ("");
+    setAmount("")
 }
 
     return (
@@ -104,6 +108,7 @@ const inputValue = ({fetchData}) => {
                     </div>
                 </div>
                 <input id="button-add" type="submit" value="ADICIONAR"/>
+                
             </form>
         </section>
     )

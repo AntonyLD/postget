@@ -1,34 +1,70 @@
 {
   "products": [
     {
-      "id": "1477",
-      "product": "CARNE",
-      "price": "10,00"
+      "id": "e418",
+      "product": "banana",
+      "price": "2.5",
+      "amount": "1"
     },
     {
-      "id": "b46f",
-      "product": "OVOS",
-      "price": "0,23"
+      "id": "39ea",
+      "product": "arroz",
+      "price": "10,00",
+      "amount": "1"
     },
     {
-      "id": "3bc2",
-      "product": "MACARRÃO",
-      "price": "3,50"
+      "id": "adbc",
+      "product": "leite",
+      "price": "8.05",
+      "amount": "1"
     },
     {
-      "id": "f285",
-      "product": "COCO",
-      "price": "10,00"
+      "id": "b3d7",
+      "product": "escova de dente",
+      "price": "16,89",
+      "amount": "1"
     },
     {
-      "id": "03f2",
-      "product": "PICANHA ",
-      "price": "9.999,99"
+      "id": "3f4d",
+      "product": "livro",
+      "price": "32,00",
+      "amount": "1"
     },
     {
-      "id": "bf9e",
-      "product": "PISTOLA",
-      "price": "80,00"
+      "id": "8064",
+      "product": "saco de lixo",
+      "price": "3,50",
+      "amount": "1"
+    },
+    {
+      "id": "b905",
+      "product": "10 pães",
+      "price": "15,20",
+      "amount": "1"
+    },
+    {
+      "id": "9cbf",
+      "product": "30 ovos",
+      "price": "30,00",
+      "amount": "1"
+    },
+    {
+      "id": "0468",
+      "product": "óculos de sol",
+      "price": "25.300000000000008",
+      "amount": "1"
+    },
+    {
+      "id": "bf35",
+      "product": "maizena",
+      "price": "7.560000000000001",
+      "amount": "1"
+    },
+    {
+      "id": "ff01",
+      "product": "lazanha",
+      "price": "25,60",
+      "amount": "1"
     }
   ]
 }

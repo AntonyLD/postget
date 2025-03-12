@@ -1,43 +1,168 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/prop-types */
+ /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
-import { useState } from "react"
-import "./table.css"
+import { useEffect, useState } from "react";
+import "./table.css";
 
-const table = ({products, fetchData}) => {
+const Table = ({products, fetchData }) => {
+  const [originalPrices, setOriginalPrices] = useState({});
 
-    const deleteProduct = async (id) =>{
-        try{
-            const response = await fetch(`http://localhost:3000/products/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
+  useEffect((item) => {
+    setOriginalPrices((prevPrices) =>{
+      const newPrices = {...prevPrices};
 
-            fetchData();
-
-        }catch(error) {
-            console.error("Erro ao excluir:", error)
+      products.forEach((item) =>{
+      
+        if (!newPrices[item.id]){
+          newPrices[item.id] = parseFloat(item.price.replace(",", "."))
         }
+      });
+
+      return newPrices;
+
+    });
+
+  }, [products]);
+
+  const formatCurrency = (value) => {
+    return value
+      .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+      .replace("R$", "")
+      .trim();
+  };
+
+  const addProduct = async (id) => {
+    try {
+      const originalPrice = originalPrices[id];
+      console.log(originalPrice)
+      let currentProduct = products.find((item) => item.id === id);
+      currentProduct.amount = parseInt(currentProduct.amount)
+      
+      if (!originalPrice || !currentProduct) {
+        return;
+      }
+
+      const updatedAmount = currentProduct.amount + 1;
+      const updatedPrice = originalPrice * updatedAmount;
+
+      const response = await fetch(`http://localhost:3000/products/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount: updatedAmount.toString(),
+          price: updatedPrice.toString(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao buscar produto");
+      }
+
+      fetchData();
+    } catch (error) {
+      console.error("Erro ao incluir valor:", error);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    const currentProduct = products.find((item) => item.id === id);
+    if (!currentProduct) {
+      return;
     }
 
-    return (
-        <section id="table">
-            {products.map((item) =>(
-                <ul id="list-table" key={item.id}>
-                    <li>{item.product} - R$: {item.price}</li>
-                    <li><button 
-                    type="submit"
-                    onClick={() => deleteProduct(item.id)}
-                    >
-                    <svg xmlns="http://www.w3.org/2000/svg" height="26px"  viewBox="0 -960 960 960" width="26px" fill="#e8eaed">
-                    <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
-                    </svg>
-                    </button></li>
-                </ul>
-            ))}
-        </section>
-    )
-}
+    currentProduct.amount = parseInt(currentProduct.amount)
+    const updatedAmount = currentProduct.amount - 1;
 
-export default table
+
+
+    const originalPrice = originalPrices[id];
+    const currentPrice = parseFloat(currentProduct.price.replace(",", "."));
+
+    if (currentPrice !== originalPrice) {
+      const updatedPrice = currentPrice - originalPrice;
+
+      try {
+        const response = await fetch(`http://localhost:3000/products/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 
+            price: updatedPrice.toString(),
+            amount: updatedAmount.toString(),
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Erro ao atualizar preço");
+        }
+
+        fetchData();
+      } catch (error) {
+        console.error("Erro ao subtrair:", error);
+      }
+    } else {
+      try {
+        const response = await fetch(`http://localhost:3000/products/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Erro ao excluir");
+        }
+
+        fetchData();
+      } catch (error) {
+        console.error("Erro ao excluir:", error);
+      }
+    }
+  };
+
+  return (
+    <section id="table">
+      {products.map((item) => (
+        <ul id="list-table" key={item.id}>
+          <li>
+            {item.product} - R$:{" "}
+            {formatCurrency(parseFloat(item.price.replace(",", ".")))}
+          </li>
+
+          <li id="buttons">
+            <button type="button" onClick={() => addProduct(item.id)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+              </svg>
+            </button>
+
+            <p> {item.amount} </p>
+
+            <button type="button" onClick={() => deleteProduct(item.id)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path d="M200-440v-80h560v80H200Z" />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      ))}
+    </section>
+  );
+};
+
+export default Table;

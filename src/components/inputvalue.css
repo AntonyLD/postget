@@ -56,7 +56,7 @@
     height: 3rem;
     width: 10.4rem;
     border-radius: 8px;
-    background-color: var(--colorLine);
+    background-color: var(--mainColor);
     border: none;
     transition: 0.5S;
     margin-top: 12px;

@@ -47,6 +47,7 @@ const Table = ({products, fetchData }) => {
 
       const updatedAmount = currentProduct.amount + 1;
       const updatedPrice = originalPrice * updatedAmount;
+      console.log(updatedPrice)
 
       const response = await fetch(`http://localhost:3000/products/${id}`, {
         method: "PATCH",
@@ -55,7 +56,7 @@ const Table = ({products, fetchData }) => {
         },
         body: JSON.stringify({
           amount: updatedAmount.toString(),
-          price: updatedPrice.toString(),
+          totPrice: updatedPrice.toString(),
         }),
       });
 
@@ -79,7 +80,7 @@ const Table = ({products, fetchData }) => {
     const updatedAmount = currentProduct.amount - 1;
 
     const originalPrice = originalPrices[id];
-    const currentPrice = parseFloat(currentProduct.price.replace(",", "."));
+    const currentPrice = parseFloat(currentProduct.totPrice.replace(",", "."));
 
     if (currentPrice !== originalPrice) {
       const updatedPrice = currentPrice - originalPrice;
@@ -91,7 +92,7 @@ const Table = ({products, fetchData }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ 
-            price: updatedPrice.toString(),
+            totPrice: updatedPrice.toString(),
             amount: updatedAmount.toString(),
           }),
         });
@@ -141,7 +142,7 @@ const Table = ({products, fetchData }) => {
         <ul id="list-table" key={item.id}>
           <li>
             {item.product} - R$:{" "}
-            {formatCurrency(parseFloat(item.price.replace(",", ".")))}
+            {formatCurrency(parseFloat(item.totPrice.replace(",", ".")))}
           </li>
 
           <li id="buttons">

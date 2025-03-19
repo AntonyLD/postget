@@ -8,6 +8,7 @@ const inputValue = ({fetchData}) => {
     const [product, setProduct] = useState("")
     const [price, setPrice ] = useState("")
     const [amount, setAmount] = useState("")
+    const [totPrice, setTotPrice] = useState("")
 
     const handleProduct = (e) =>{
         setProduct(e.target.value)
@@ -45,7 +46,7 @@ const inputValue = ({fetchData}) => {
         }
 
 
-        const productData = {product, price, amount: "1"}
+        const productData = {product, price, amount: "1", totPrice: price}
 
     try{
         const response = await fetch('http://localhost:3000/products',
@@ -75,7 +76,8 @@ const inputValue = ({fetchData}) => {
 
     setProduct("");
     setPrice ("");
-    setAmount("")
+    setTotPrice ("");
+    setAmount("");
 }
 
     return (

@@ -4,10 +4,19 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  --corPrincipal: rgb(116, 116, 250);
-  --corSecundaria: rgb(57, 57, 114);
-  --corSombra: rgb(33, 33, 61);
-  --corSombraClara: rgb(49, 49, 92);
+  --colorLine: rgba(66, 66, 66, 0.233);
+  --insideShadow: rgba(0, 0, 0, 0.705);
+  --backgeoundColorTable: rgb(29, 29, 29);
+  --backgroundItensList: rgba(46, 46, 46, 0.801);
+  --boxShadowItensList: rgb(10, 8, 8);
+  --backgroundValues: rgb(34, 34, 34);
+
+  --mainColorDark:rgb(23, 47, 100);
+  --mainColorShadowDark: rgb(33, 33, 61);
+
+  --mainColor: rgb(19, 67, 168);
+  --mainShadow: rgb(41, 41, 87);
+
   
 
   font-synthesis: none;
@@ -16,8 +25,3 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #242424;
-}

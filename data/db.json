@@ -12,14 +12,14 @@
       "product": "escova de dente",
       "price": "16,89",
       "amount": "1",
-      "totPrice": "16,89"
+      "totPrice": "16.89"
     },
     {
       "id": "3f4d",
       "product": "livro",
       "price": "32,00",
       "amount": "1",
-      "totPrice": "32,00"
+      "totPrice": "32"
     },
     {
       "id": "8064",
@@ -33,14 +33,14 @@
       "product": "10 pães",
       "price": "15,20",
       "amount": "1",
-      "totPrice": "15,20"
+      "totPrice": "15.2"
     },
     {
       "id": "9cbf",
       "product": "30 ovos",
       "price": "30,00",
       "amount": "1",
-      "totPrice": "30,00"
+      "totPrice": "30"
     },
     {
       "id": "0468",

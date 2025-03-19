@@ -43,21 +43,24 @@
     border-radius: 8px;
     border: none;
     text-align: center;
+    border: 1px solid var(--colorLine);
+    background-color: var(--backgroundValues);
+    box-shadow: inset 0px 0px 12px 5px var(--insideShadow);
 }
 
 #price:focus, #product:focus{
-    outline: 2px solid var(--corPrincipal);
+    outline: 2px solid var(--colorLine);
 }
 
 #button-add{
     height: 3rem;
     width: 10.4rem;
     border-radius: 8px;
-    background-color: var(--corPrincipal);
+    background-color: var(--colorLine);
     border: none;
     transition: 0.5S;
     margin-top: 12px;
-    box-shadow: 2px 3px 0px 2px var(--corSombra);
+    
 }
 
 @media (min-width: 600px) {
@@ -67,13 +70,16 @@
     }
 
     #button-add{
-        background-color: var(--corSecundaria);
+        background-color: var(--mainColorDark);
         font-size: 1rem;
         font-weight: bold;
+        color: rgba(255, 255, 255, 0.5)
     }
 
     #button-add:hover{
-        background-color: var(--corPrincipal);
-        box-shadow: 2px 3px 0px 2px var(--corSombraClara);
+        background-color: var(--mainColor);
+        box-shadow: 0px 0px 14px var(--mainColor);
+        color: white;
+    
     }
 }

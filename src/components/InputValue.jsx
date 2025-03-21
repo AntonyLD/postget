@@ -7,8 +7,6 @@ const inputValue = ({fetchData}) => {
 
     const [product, setProduct] = useState("")
     const [price, setPrice ] = useState("")
-    const [amount, setAmount] = useState("")
-    const [totPrice, setTotPrice] = useState("")
 
     const handleProduct = (e) =>{
         setProduct(e.target.value)
@@ -34,11 +32,11 @@ const inputValue = ({fetchData}) => {
 
     const handleBlur = () => {
         if (price === "0,00") {
-            setPrice("");
+            setPrice("0,00");
         }
     }
 
-    const addProcut = async (e) =>{
+    const addProduct = async (e) =>{
         e.preventDefault();
         if (product === "" || price === ""){
             alert("Faltam informações!!!")
@@ -53,7 +51,7 @@ const inputValue = ({fetchData}) => {
             {
                 method: "POST",
                 headers:{
-                    "Content-type": "application/json",
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify(productData),
             });
@@ -62,10 +60,10 @@ const inputValue = ({fetchData}) => {
                 throw new Error("Falha ao enviar os dados");
             }
 
-            fetchData()
+            
 
             const data = await response.json();
-            console.log("Produto adicionado", data)
+            fetchData()
 
             
 
@@ -76,14 +74,12 @@ const inputValue = ({fetchData}) => {
 
     setProduct("");
     setPrice ("");
-    setTotPrice ("");
-    setAmount("");
 }
 
     return (
 
         <section id="main-input">
-            <form id="form-input" onSubmit={addProcut}>
+            <form id="form-input" onSubmit={addProduct}>
                 <div id="staly-product-price">
                     <div className="format-align">
                         <label htmlFor="product">PRODUTO</label>

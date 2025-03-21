@@ -30,7 +30,9 @@ function App() {
 
   return (
     <main>
-      <h1>Lista <span id='de'>de</span> compras</h1>
+      <header>
+        <h1>Lista <span id='de'>de</span> compras</h1>
+      </header>
       <section id='mainSection'>
         <Table  products = {products} fetchData = {fetchData}/>
         <InputValue fetchData = {fetchData}/>

@@ -8,7 +8,7 @@ const Table = ({products, fetchData }) => {
   const [originalPrices, setOriginalPrices] = useState({});
   const [totValue, setTotValue] = useState(0)
 
-  useEffect((item) => {
+  useEffect(() => {
     setOriginalPrices((prevPrices) =>{
       const newPrices = {...prevPrices};
 
@@ -39,7 +39,7 @@ const Table = ({products, fetchData }) => {
       const originalPrice = originalPrices[id];
       console.log(originalPrice)
       let currentProduct = products.find((item) => item.id === id);
-      currentProduct.amount = parseInt(currentProduct.amount)
+      currentProduct.amount = parseInt(currentProduct.amount, 10)
       
       if (!originalPrice || !currentProduct) {
         return;
@@ -138,8 +138,10 @@ const Table = ({products, fetchData }) => {
   return (
     <>
     <section id="table">
+      {products.length === 0 && <p id="mensagemAddProduto">Adicione algum produto.</p>}
       {products.map((item) => (
         <ul id="list-table" key={item.id}>
+          
           <li>
             {item.product} - R$:{" "}
             {formatCurrency(parseFloat(item.totPrice.replace(",", ".")))}

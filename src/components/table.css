@@ -5,7 +5,7 @@
 }
 
 #table{
-    max-height: 22.5rem;
+    height: 22.5rem;
     overflow-y: auto;
     width: 100vw;
     display: flex;
@@ -15,6 +15,12 @@
     border: 1px solid var(--colorLine);
     background-color: var(--backgeoundColorTable);
     box-shadow: inset 0px 0px 12px 6px var(--insideShadow);
+}
+
+#mensagemAddProduto{
+    font-size: 30px;
+    margin: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #list-table{
@@ -93,12 +99,16 @@ ul{
 @media (min-width: 600px) {
     
     #table{
-        max-height: 28rem;
         height: 52vh;
         max-width: 50rem;
         border-radius: 8px;
         scrollbar-width: none;
-        
+    }
+
+    #mensagemAddProduto{
+        font-size: 40px;
+        margin: auto;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
     #table::-webkit-scrollbar {

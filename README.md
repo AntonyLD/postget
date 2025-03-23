@@ -1,8 +1,32 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tecnologias Utilizadas
+    -React.js
+    -JavaScript (ES6+)
+    -JSON Server (API fake)
+    -CSS
 
-Currently, two official plugins are available:
+Funcionalidades
+    -Adicionar produtos com nome e preço formatado.
+    -Atualizar a quantidade de um produto (incrementar e decrementar).
+    -Calcular automaticamente o valor total dos produtos.
+    -Remover um produto da lista.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Estrutura do Projeto
+    MeuProjeto
+    ┣ src
+    ┃ ┣ components
+    ┃ ┃ ┣   Table.jsx (Tabela de produtos)
+    ┃ ┃ ┣  InputValue.jsx (Formulário para adicionar produtos)
+    ┃ ┣  App.jsx (Componente principal)
+    ┃ ┣  index.js (Ponto de entrada)
+    ┣  db.json (Banco de dados fake)
+    ┣  package.json
+    ┣  README.md
+
+Como rodar o rojeto
+    Instalar as dependências : npm install
+    Rodar o JSON Server (API Fake): npx json-server --watch db.json --port 3000
+    Iniciar a aplicação : npm run dev
+
+Desenvolvido por Antony.

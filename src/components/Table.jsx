@@ -8,6 +8,8 @@ const Table = ({products, fetchData }) => {
   const [originalPrices, setOriginalPrices] = useState({});
   const [totValue, setTotValue] = useState(0)
 
+  
+  /* Armazena os preços originais dos produtos ao carregar a tabela*/
   useEffect(() => {
     setOriginalPrices((prevPrices) =>{
       const newPrices = {...prevPrices};
@@ -34,42 +36,46 @@ const Table = ({products, fetchData }) => {
       .trim();
   };
 
-  const addProduct = async (id) => {
-    try {
-      const originalPrice = originalPrices[id];
-      console.log(originalPrice)
-      let currentProduct = products.find((item) => item.id === id);
-      currentProduct.amount = parseInt(currentProduct.amount, 10)
-      
-      if (!originalPrice || !currentProduct) {
-        return;
+    /* Atualiza o produto na tabela */
+    const addProduct = async (id) => {
+      try {
+        const currentProduct = products.find((item) => item.id === id);
+
+        const originalPrice = originalPrices[id];
+        if (!originalPrice || !currentProduct) {
+          console.error("Produto ou preço original não encontrado");
+          return;
+        }
+        
+        currentProduct.amount = parseInt(currentProduct.amount, 10);
+
+        const updatedAmount = currentProduct.amount + 1;
+        const updatedPrice = originalPrice * updatedAmount;
+        console.log(updatedPrice);
+        
+        const response = await fetch(`http://localhost:3000/products/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: updatedAmount.toString(),
+            totPrice: updatedPrice.toString(),
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Erro ao buscar produto");
+        }
+
+        fetchData();
+      } catch (error) {
+        console.error("Erro ao incluir valor:", error);
       }
+    };
+    
 
-      const updatedAmount = currentProduct.amount + 1;
-      const updatedPrice = originalPrice * updatedAmount;
-      console.log(updatedPrice)
-
-      const response = await fetch(`http://localhost:3000/products/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: updatedAmount.toString(),
-          totPrice: updatedPrice.toString(),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Erro ao buscar produto");
-      }
-
-      fetchData();
-    } catch (error) {
-      console.error("Erro ao incluir valor:", error);
-    }
-  };
-
+  /* Diminui a quantidade de item da tabele se ele for maior que 1 ou deleta se for igual a 1 */
   const deleteProduct = async (id) => {
     const currentProduct = products.find((item) => item.id === id);
     if (!currentProduct) {
@@ -125,8 +131,8 @@ const Table = ({products, fetchData }) => {
     }
   };
 
+  /* Calcula o valor total dos produtos da lista */
   const calculateTotPrice = () =>{
-
     const total = products.reduce((acc, item) =>{
       return acc + parseFloat(item.price.replace(",", ".")) * item.amount;
     }, 0)

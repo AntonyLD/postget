@@ -12,6 +12,7 @@ const inputValue = ({fetchData}) => {
         setProduct(e.target.value)
     }
 
+    /* Formata o input ao digitar para o padrão de real */
     const handlePrice = (e) => {
         let value = e.target.value;
     
@@ -36,6 +37,7 @@ const inputValue = ({fetchData}) => {
         }
     }
 
+    /* Recebe os valores do input e adiciona na API */
     const addProduct = async (e) =>{
         e.preventDefault();
         if (product === "" || price === ""){
@@ -44,7 +46,7 @@ const inputValue = ({fetchData}) => {
         }
 
 
-        const productData = {product, price, amount: "1", totPrice: price}
+    const productData = {product, price, amount: "1", totPrice: price}
 
     try{
         const response = await fetch('http://localhost:3000/products',
@@ -77,7 +79,6 @@ const inputValue = ({fetchData}) => {
 }
 
     return (
-
         <section id="main-input">
             <form id="form-input" onSubmit={addProduct}>
                 <div id="staly-product-price">
